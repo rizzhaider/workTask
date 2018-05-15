@@ -1,0 +1,4 @@
+  .mail_list_column{
+        max-height: 570px;
+        overflow-y: auto;
+        }

@@ -1,0 +1,13 @@
+<div class="clickE" (click) = "onSelectLanguage()" >
+<a [ngClass] = "{'active': languageElement.isActive}">
+  <div class="mail_list">
+    <div class="left">
+      <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
+    </div>
+    <div class="right">
+      <h3>{{languageElement.name}} <small>{{languageElement.id}}</small></h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
+    </div>
+  </div>
+</a>
+</div>

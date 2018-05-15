@@ -1,0 +1,45 @@
+<div class="login body">
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form (ngSubmit)="login(f)" #f="ngForm">
+              <h1>Login Form</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" name="username" ngModel #username="ngModel" required autocomplete="off"/>
+                <span class="help-block"  *ngIf="!username.valid && username.touched">Please enter a username</span>
+              </div>
+             
+              <div>
+                <input type="password" class="form-control" name="password" placeholder="Password" ngModel  #password="ngModel" required  />
+                <span class="help-block"  *ngIf="!password.valid && password.touched">Please enter a password</span>
+              </div>
+              <div>
+                <button class="btn btn-default submit" type="submit" [disabled]="!f.valid" >Log in</button>
+                <a class="reset_pass" href="#">Lost your password?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a  class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        
+      </div>
+    </div>

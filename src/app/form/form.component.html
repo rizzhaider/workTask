@@ -1,0 +1,189 @@
+<div class="container body" id="mainClick" [ngClass]="{'nav-md':!sideBarcollapsedHome, 'nav-sm':sideBarcollapsedHome}">
+  <div class="main_container">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- top navigation -->
+    <app-header (sidebarButtonToggled)="buttonSidebarToggled($event)"></app-header>
+    <!-- /top navigation -->
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Form Elements</h3>
+          </div>
+
+          <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="row">
+
+
+          <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Form Basic Elements <small>different form elements</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left">
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" class="form-control" placeholder="Default Input">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Disabled Input </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                        </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <textarea class="form-control" rows="3" placeholder='rows="3"'></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="password" class="form-control" value="passwordonetwo">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">AutoComplete</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select State</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="customersDetails.StateID" name="customersDetails.StateID" class="form-control" (change)="onStateChange()">
+                            <option value = '-1'>Choose option</option>
+                            <option *ngFor = "let state of states" [ngValue]="state.Id">{{state.Name}}</option>
+                           
+                          </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select District</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="customersDetails.DistrictID" name="customersDetails.DistrictID" (change)="onDistrictChange()" class="select2_single form-control">
+                           
+                            <option value="-1">Choose District</option>
+                            <option *ngFor = "let district of districts" [ngValue] = "district.Id">{{district.Name}}</option>
+                            
+                          </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Block</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="customersDetails.BlockID" name="customersDetails.BlockID" (change)="onBlockChange()" class="select2_group form-control">
+                          
+                              <option value="-1">Choose Block</option>
+                              <option *ngFor = "let block of blocks" [ngValue]= "block.Id">{{block.Name}}</option>
+                           
+                          </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Village</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="customersDetails.VillageID" name="customersDetails.VillageID" class="select2_group form-control">
+                          
+                              <option value="-1">choose Village</option>
+                              <option *ngFor = "let village of villages" [ngValue] = "village.Id">{{village.Name}}</option>
+                           
+                          </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Category</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="productList.CategoryId" name="productList.CategoryId" class="select2_group form-control" (change)="onCategoryChange()">
+                          
+                              <option value="-1">choose Category</option>
+                              <option *ngFor = "let category of categories" [ngValue] = "category.Id" >{{category.Name}}</option>
+                           
+                          </select>
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select SubCategory</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select [(ngModel)]="productList.subcategoryId" name="productList.subcategoryId" class="select2_group form-control" (change)="onSubCategoryChange()">
+                          
+                              <option value="-1">choose SubCategory</option>
+                              <option *ngFor = "let subCategory of subCategories" [ngValue] = "subCategory.Id" >{{subCategory.Name}}</option>
+                           
+                          </select>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    <app-footer></app-footer>
+    <!-- /footer content -->
+  </div>
+</div>

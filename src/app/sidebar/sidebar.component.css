@@ -1,0 +1,14 @@
+
+.nav.child_menu{display: block!important;}
+.child_menu li {
+  min-height: 0;
+  max-height: 0;
+  opacity: 0;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.child_menu_active li {
+  min-height: 35px;
+  opacity: 1;
+}
